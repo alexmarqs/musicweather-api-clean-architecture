@@ -1,0 +1,39 @@
+spring:
+  redis:
+    host: localhost
+    port: 6379
+  cache:
+    cache-names: weather, playlists
+    redis:
+      time-to-live: 86400000  # 24 hours, default ttl (value in milliseconds)
+      time-to-live-cache-map: # (values in seconds)
+        weather: 12600 # 3.5 hours
+        playlists: 900 # 15 min
+
+logging:
+  level:
+    root: INFO
+    example.musiweather.app: DEBUG
+
+app:
+  api-client:
+    open-weather-map:
+      key: ${OPENWEATHER_KEY}
+      units: metric
+      url: http://api.openweathermap.org/data/2.5/weather?appid=${app.api-client.open-weather-map.key}&units=${app.api-client.open-weather-map.units}
+    spotify:
+      url: https://api.spotify.com/v1
+      auth-url: https://accounts.spotify.com/api
+      client-id: ${SPOTIFY_CLIENT_ID}
+      client-secret: ${SPOTIFY_CLIENT_SECRET}
+
+---
+
+spring:
+  profiles: docker
+  redis:
+    host: redis
+logging:
+  level:
+    example.musiweather.app: INFO
+

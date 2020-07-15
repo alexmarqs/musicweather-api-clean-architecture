@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: musiweather-api
+    environment:
+      SPOTIFY_CLIENT_ID: # your spotify client id here
+      SPOTIFY_CLIENT_SECRET: # your spotify client secret here
+      OPENWEATHER_KEY: # your openweather key here
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - 8080:8080
+    depends_on:
+      - redis
+  redis:
+    image: "redis:alpine"
+    container_name: musiweather-cache-redis
+    ports:
+      - 6379:6379
