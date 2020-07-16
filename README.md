@@ -1,4 +1,4 @@
-# MusiWeather API 
+# MusiWeather API - Spring Boot Clean Architecture example 
 An API system that returns playlist suggestions based on the current weather/temperature using a clean architecture with Spring Boot.  
   
 **Environment requirements:**  
