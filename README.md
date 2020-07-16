@@ -1,12 +1,12 @@
-## MusiWeather API - Spring Boot Clean Architecture example  
+# MusiWeather API 
 An API system that returns playlist suggestions based on the current weather/temperature using a clean architecture with Spring Boot.  
   
-Environment requirements:  
+**Environment requirements:**  
 - JDK 11        
 - Maven        
 - Docker    
 
-Technologies / Libs:
+**Technologies:**
 - Spring Boot
 - Lombok 
 - Swagger
@@ -14,43 +14,56 @@ Technologies / Libs:
 - OpenFeign 
 - Redis 
 
-### Requirements  
-External API's: 
+## Business requirements  
+**External API's:** 
 - Weather info (temperature data) - [OpenWeatherMaps API](https://openweathermap.org/current)  
 - Playlist suggestions - [Spotify API](https://developer.spotify.com/documentation/web-api/quick-start/)  
   
-Business rules:  
+**Business rules:**  
 - If temperature (in celsius) is below 15, suggest jazz musics   
 - (...) between 15 and 19, suggest indie musics
 - (...) between 20 and 26, suggest reggae musics
 - (...) above 26, suggest party musics
   
-Use cases:  
+**Use cases:**  
 - Get suggested playlist by city name
 - Get suggested playlist by location coordinates (lat and lon)
 
-### Architecture  
+## Architecture  
 A Clean & Hexagonal Architecture approach was followed as you can see in the diagram below: 
 
+<img src="docs/musiweather_architecture.png" width="75%" height="75%">
+
+## How to run  
+***NOTE:** The required environment variables (SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, OPENWEATHER_KEY) must be correctly set in [docker-compose.yml](docker-compose.yml) or diretly in [application.yml](/src/main/resources/application.yml).*
+
+**With docker-compose**:  
+ - Run the [startup.sh](/scripts/startup.sh)!
   
-### Instructions to build and run the application   
-With docker-compose:  
+**Without docker-compose**:
+ - Generate the artifact (.jar) from the spring boot app using the command `mvn clean package`;
+ - Setup a Redis server in your environment (via Docker you can use the script [start_single_redis.sh](/scripts/start_single_redis.sh));
+ - Run the maven spring boot plugin (`mvn spring-boot:run`) or directly the java command `java -jar <jar file location>`!
 
-  
-Without docker-compose:
+## TODO actions
+- [ ] Tests (Junit + ArchUnit)
+- [ ] CI/CD integration  
 
-### TODO actions (under development):
-
--[ ] Tests (Junit + ArchUnit)
--[ ] CI/CD integration  
-
-### References
+## References
 [https://beyondxscratch.com/2017/08/19/decoupling-your-technical-code-from-your-business-logic-with-the-hexagonal-architecture-hexarch/](https://beyondxscratch.com/2017/08/19/decoupling-your-technical-code-from-your-business-logic-with-the-hexagonal-architecture-hexarch/)
+
 [https://medium.com/sciforce/another-story-about-microservices-hexagonal-architecture-23db93fa52a2](https://medium.com/sciforce/another-story-about-microservices-hexagonal-architecture-23db93fa52a2)
+
 [https://madewithlove.com/hexagonal-architecture-demystified/](https://madewithlove.com/hexagonal-architecture-demystified/)
+
 [https://medium.com/swlh/hexagonal-architecture-in-java-b980bfc07366](https://medium.com/swlh/hexagonal-architecture-in-java-b980bfc07366)
+
 [https://medium.com/@fabiojose/dipower-a76f453b38fd](https://medium.com/@fabiojose/dipower-a76f453b38fd)
+
 [https://blog.wick.technology/sensible-feign/](https://blog.wick.technology/sensible-feign/)
+
 [https://medium.com/@darguelles.rojas91/amazing-rest-clients-with-mr-feign-6195d5499a38](https://medium.com/@darguelles.rojas91/amazing-rest-clients-with-mr-feign-6195d5499a38)
+
 [https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html)
+
 [https://www.baeldung.com/mapstruct-custom-mapper](https://www.baeldung.com/mapstruct-custom-mapper)
