@@ -1,4 +1,6 @@
-# MusiWeather API - Spring Boot Clean Architecture example 
+# MusiWeather API - Spring Boot Clean Architecture example
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 An API system that returns playlist suggestions based on the current weather/temperature using a clean architecture with Spring Boot.  
   
 **Environment requirements:**  
