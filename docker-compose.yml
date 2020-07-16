@@ -6,9 +6,9 @@ services:
       dockerfile: Dockerfile
     container_name: musiweather-api
     environment:
-      SPOTIFY_CLIENT_ID: # your spotify client id here
-      SPOTIFY_CLIENT_SECRET: # your spotify client secret here
-      OPENWEATHER_KEY: # your openweather key here
+      # SPOTIFY_CLIENT_ID: <your spotify client id here>
+      # SPOTIFY_CLIENT_SECRET: <your spotify client secret here>
+      # OPENWEATHER_KEY: <your openweather key here>
       SPRING_PROFILES_ACTIVE: docker
     ports:
       - 8080:8080
