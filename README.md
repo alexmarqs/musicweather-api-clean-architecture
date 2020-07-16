@@ -34,6 +34,13 @@ A Clean & Hexagonal Architecture approach was followed as you can see in the dia
 
 <img src="docs/musiweather_architecture.png" width="75%" height="75%">
 
+## API Documentation
+Access http://localhost:8080/swagger-ui.html to check the documentation.
+
+Rest endpoint to get playlist suggestion by city name: `GET http://localhost:8080/api/v1/playlist-weather?lat={latitude}&lon={longitude}`
+
+Rest endpoint to get playlist suggestion by coordinates:`GET http://localhost:8080/api/v1/playlist-weather?city={cityName}`
+
 ## How to run  
 ***NOTE:** The required environment variables (SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, OPENWEATHER_KEY) must be correctly set in [docker-compose.yml](docker-compose.yml) or diretly in [application.yml](/src/main/resources/application.yml).*
 
