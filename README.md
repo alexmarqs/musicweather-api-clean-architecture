@@ -1,6 +1,4 @@
 # MusiWeather API - Spring Boot Clean Architecture example
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
 An API system that returns playlist suggestions based on the current weather/temperature using a clean architecture with Spring Boot.  
   
 **Environment requirements:**  
@@ -18,8 +16,8 @@ An API system that returns playlist suggestions based on the current weather/tem
 
 ## Business requirements  
 **External API's:** 
-- Weather info (temperature data) - [OpenWeatherMaps API](https://openweathermap.org/current)  
-- Playlist suggestions - [Spotify API](https://developer.spotify.com/documentation/web-api/quick-start/)  
+- Weather info (temperature data) - [OpenWeatherMaps API](https://openweathermap.org/current) (see how to get your API key [here](https://openweathermap.org/appid))
+- Playlist suggestions - [Spotify API](https://developer.spotify.com/documentation/web-api/quick-start/) (see how to get your API credentials [here](https://developer.spotify.com/documentation/general/guides/app-settings/))
   
 **Business rules:**  
 - If temperature (in celsius) is below 15, suggest jazz musics   
@@ -56,6 +54,7 @@ Rest endpoint to get playlist suggestion by coordinates: `GET http://localhost:8
                 "name": "DOLLAZ ON MY HEAD (feat. Young Thug)"
             },
             (...)
+}    
 ```
 Rest endpoint to get playlist suggestion by city name:`GET http://localhost:8080/api/v1/playlist-weather?city={cityName}`
 ```console
@@ -74,7 +73,7 @@ Rest endpoint to get playlist suggestion by city name:`GET http://localhost:8080
                 "name": "DOLLAZ ON MY HEAD (feat. Young Thug)"
             },
             (...)
-
+}
 ```
 
 ## How to run  
